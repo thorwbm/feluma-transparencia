@@ -1,0 +1,23 @@
+footer{
+    background-color: rgb(141, 199, 199);
+}
+
+a:visited  {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover  {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:active  {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:link {
+    text-decoration: none;
+    color: #fff;
+}
