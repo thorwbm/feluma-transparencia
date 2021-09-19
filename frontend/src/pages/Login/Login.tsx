@@ -6,12 +6,25 @@ const Login = () => {
     return (
         <>
             <NavBar />
-            <div className="container text-center">
-                <h1 className="text-primary py-3">Login </h1>
-               <Button route= "/home" value="LOGAR" className="btn bg-primary text-color-with" />
+            <div className="container text-center col-sm-4">                
+                <h1 className="text-primary py-3">ola mundoooooooo </h1>
+                <form>
+                    <div className="form-group mt-3">
+                        <label>Email</label>
+                        <input type="email" className="form-control" placeholder="Ex.: feluma@gmail.com" />
+ 
+                    </div>
+                    <div className="form-group mt-3">
+                        <label >Senha</label>
+                        <input type="password" className="form-control" placeholder="informe sua senha" />
+                    </div>
+                    <Button route="/home" value="Logar" className="btn bg-primary btn-lg mt-5" />
+                </form>
             </div>
             <Footer />
         </>
+
+
     )
 }
 
