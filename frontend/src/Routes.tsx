@@ -1,5 +1,6 @@
 
 import Home from 'pages/Home'
+import Login from 'pages/Login';
 import Resultado from 'pages/Resultado';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
@@ -8,6 +9,9 @@ const Routes =() => {
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact>
+                    <Login />
+                </Route>
+                <Route path="/home" >
                     <Home />
                 </Route>
                 <Route path="/resultado" >
