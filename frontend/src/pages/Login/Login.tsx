@@ -18,7 +18,7 @@ const Login = () => {
                         <label >Senha</label>
                         <input type="password" className="form-control" placeholder="informe sua senha" />
                     </div>
-                    <Button route="/home" value="Logar" className="btn bg-primary btn-lg mt-5" />
+                    <Button route="/home" value="Logar" className="btn bg-primary px-4 mt-5" />
                 </form>
             </div>
             <Footer />
