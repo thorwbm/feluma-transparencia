@@ -28,15 +28,6 @@ public class Registro {
 	@Column
 	private String pagina;
 	
-	@Column
-	private String cpf;
-	
-	@Column
-	private String rg;
-	
-	@Column
-	private String rne;
-	
 	@Column(name="data_ingresso")
 	private Date   dataIngresso;
 	

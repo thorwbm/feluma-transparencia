@@ -24,6 +24,16 @@ public class Aluno {
 	
 	@Column
 	private String nome;
+
+	@Column
+	private String cpf;
+
+	@Column
+	private String rg;
+
+	@Column
+	private String rne;
+	
 	
 	@OneToMany(mappedBy = "aluno")
 	private List<Registro> registros = new ArrayList<>();

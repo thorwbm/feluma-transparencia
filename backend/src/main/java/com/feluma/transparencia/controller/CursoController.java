@@ -8,19 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.feluma.transparencia.DTO.AlunoDto;
-import com.feluma.transparencia.service.AlunoService;
+import com.feluma.transparencia.DTO.CursoDto;
+import com.feluma.transparencia.service.CursoService;
 
 @RestController
-@RequestMapping(value = "/alunos")
-public class AlunoController {
-
+@RequestMapping("/cursos")
+public class CursoController {
+	
 	@Autowired
-	private AlunoService service;
+	private CursoService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<AlunoDto>> listarTodos(Pageable pageable) {
-		Page<AlunoDto> alunos = service.findAll(pageable);
-		return ResponseEntity.ok(alunos);
+	public ResponseEntity<Page<CursoDto>> listarTodos(Pageable pageable){
+		Page<CursoDto> lista = service.findAll(pageable);
+		return ResponseEntity.ok(lista);
 	}
+
 }

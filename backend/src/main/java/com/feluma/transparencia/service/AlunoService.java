@@ -1,9 +1,8 @@
 package com.feluma.transparencia.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.feluma.transparencia.DTO.AlunoDto;
@@ -16,9 +15,9 @@ public class AlunoService {
 	@Autowired
 	private AlunoRepository repository;
 	
-	public List<AlunoDto> findAll(){
-		List<Aluno> resultado = repository.findAll();
-		return resultado.stream().map(x -> new AlunoDto(x)).collect(Collectors.toList());
+	public Page<AlunoDto> findAll(Pageable pageable){
+		Page<Aluno> resultado = repository.findAll(pageable);
+		return resultado.map(x -> new AlunoDto(x));
 	}
 	
 }
