@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.feluma.transparencia.DTO.EntidadeDto;
 import com.feluma.transparencia.model.Entidade;
@@ -16,6 +17,8 @@ public class EntidadeService {
 	@Autowired
 	private EntidadeRepository repository;
 	
+
+	@Transactional(readOnly = true)
 	public List<EntidadeDto> findAll(){
 		List<Entidade> entidades = repository.findAll();
 		

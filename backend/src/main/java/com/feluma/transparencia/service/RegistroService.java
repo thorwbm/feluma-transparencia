@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.feluma.transparencia.DTO.RegistroDto;
 import com.feluma.transparencia.model.Registro;
@@ -24,13 +25,15 @@ public class RegistroService {
 		
 		return registros.map(registro -> new RegistroDto(registro));
 	}
-	
+
+	@Transactional(readOnly = true)
 	public List<RegistroDto> listarTodos(){
 		List<Registro> registros = repository.listarRegistros();
 		
 		return registros.stream().map(registro -> new RegistroDto(registro)).collect(Collectors.toList());
 	}
 	
+	@Transactional(readOnly = true)
 	public Page<RegistroDto> listarRegistroPorAluno (String pesquisa, Pageable pageable){
 		Page<Registro> registros = repository.pesquisarRegistrosPorNomeCpfRgRne(pesquisa, pageable);
 		List<Long> listaRegistro = registros.map(registro -> registro.getId()).toList();
