@@ -16,7 +16,7 @@ const Resultado = () => {
             <div className="container">
                 <h1 className="text-primary text-center">Resultado</h1>
                 {registros.map( item => (
-             <CertificadoCard background = {(item.id % 2) == 0 ? "bg-cinza" : ""}
+             <CertificadoCard background = {(item.id % 2) === 0 ? "bg-cinza" : ""}
                    aluno={item.aluno} curso= {item.curso} entidadeExpedidora = {item.entidadeExpedidora}
                    livro={item.livro} pagina={item.pagina} id={item.id}/>
          ))}
