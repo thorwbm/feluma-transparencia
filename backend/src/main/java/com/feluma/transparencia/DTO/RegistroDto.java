@@ -15,59 +15,36 @@ public class RegistroDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long   id;
+	private String aluno;
+	private String curso;
 	private String livro;
 	private String pagina;
-	private Date   dataIngresso;
-	private Date   dataConclusao;
-	private Date   dataExpedicao;
-	private Date   dataRegistro;
-	private AlunoDto aluno;
-	private CursoDto curso;
-	private EntidadeDto entidadeExpedidora;
-	private EntidadeDto entidadeRegistradora;
+	private String entidadeExpedidora;
 	
 	public RegistroDto() {
 		
 	}
 
-	public RegistroDto(Long id, String livro, String pagina, Date dataIngresso,
-			Date dataConclusao, Date dataExpedicao, Date dataRegistro, Aluno aluno, Curso curso,
-			Entidade entidadeExpedidora, Entidade entidadeRegistradora) {
+	public RegistroDto(Long id, String aluno, String curso, String livro, String pagina, String entidadeExpedidora) {
 		this.id = id;
+		this.aluno = aluno;
+		this.curso = curso;
 		this.livro = livro;
 		this.pagina = pagina;
-		this.dataIngresso = dataIngresso;
-		this.dataConclusao = dataConclusao;
-		this.dataExpedicao = dataExpedicao;
-		this.dataRegistro = dataRegistro;
-		this.aluno = new AlunoDto(aluno);
-		this.curso = new CursoDto(curso);
-		this.entidadeExpedidora = new EntidadeDto(entidadeExpedidora);
-		this.entidadeRegistradora = new EntidadeDto(entidadeRegistradora);
+		this.entidadeExpedidora = entidadeExpedidora;
 	}
 
-	public RegistroDto(Long id, String livro, String pagina, Aluno aluno, Curso curso, Entidade entidadeExpedidora) {
-		this.id = id;
-		this.livro = livro;
-		this.pagina = pagina;
-		this.aluno = new AlunoDto(aluno);
-		this.curso = new CursoDto(curso);
-		this.entidadeExpedidora = new EntidadeDto(entidadeExpedidora);
-	}
 
 	public RegistroDto(Registro entidade) {
 		this.id = entidade.getId();
+		this.aluno = entidade.getAluno().getNome();
+		this.curso = entidade.getCurso().getNome();
 		this.livro = entidade.getLivro();
 		this.pagina = entidade.getPagina();
-		this.dataIngresso = entidade.getDataIngresso();
-		this.dataConclusao = entidade.getDataConclusao();
-		this.dataExpedicao = entidade.getDataExpedicao();
-		this.dataRegistro = entidade.getDataRegistro();
-		this.aluno = new AlunoDto(entidade.getAluno());
-		this.curso = new CursoDto(entidade.getCurso());
-		this.entidadeExpedidora = new EntidadeDto(entidade.getEntidadeExpedidora());
-		//this.entidadeRegistradora = new EntidadeDto(entidade.getEntidadeRegistradora());
+		this.entidadeExpedidora = entidade.getEntidadeExpedidora().getNome();
 	}
+
+	
 
 	
 	
