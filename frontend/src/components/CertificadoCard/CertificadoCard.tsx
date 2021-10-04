@@ -12,7 +12,7 @@ declare interface CertificadoCardProps {
 }
 
 const CertificadoCard : React.FC<CertificadoCardProps> = (props) => {
-    return (<div className="card mt-3">
+    return (<div className={"card mt-3 " + props.background}>
                 <div className="card-body card-left">
                     <h3 className="card-title text-center titulo-card">{props.curso}</h3>
 
@@ -29,7 +29,7 @@ const CertificadoCard : React.FC<CertificadoCardProps> = (props) => {
                     <div className="label-text mb-2"><label >{props.pagina} </label></div>
                 
 
-                    <p className="text-center label-card">estes dados sao ficticios</p>                    
+                    <p className="text-center label-card">{props.id}</p>                    
                 </div>
             </div>
             )

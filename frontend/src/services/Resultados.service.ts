@@ -1,8 +1,8 @@
 
-import {  RegistroDiploma } from "types/registro";
+import {   RegistroPesquisa } from "types/registro";
 import http from "utils/http";
 
 export const getCertificadoPorAluno = (pesquisa: String) =>
     http
-        .get<RegistroDiploma[]>('http://localhost:8080/registros')
+        .get<RegistroPesquisa>("http://localhost:8080/registros/pesquisa?pesquisa=" + pesquisa)
         .then(res => res.data);

@@ -5,8 +5,13 @@ export type RegistroDiploma = {
     livro: string;
     pagina: string;
     entidadeExpedidora: string;
-    
 }
+
+export type RegistroPesquisa = {
+    content: RegistroDiploma[];
+}
+
+
 
 export type Registro = {
     id: number;
