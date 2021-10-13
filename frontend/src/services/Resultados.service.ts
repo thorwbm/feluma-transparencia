@@ -4,5 +4,5 @@ import http from "utils/http";
 
 export const getCertificadoPorAluno = (pesquisa: String) =>
     http
-        .get<RegistroPesquisa>("http://localhost:8080/registros/pesquisa?pesquisa=" + pesquisa)
+        .get<RegistroPesquisa>("/registros/pesquisa?pesquisa=" + pesquisa)
         .then(res => res.data);

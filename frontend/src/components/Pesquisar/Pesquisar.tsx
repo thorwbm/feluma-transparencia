@@ -9,6 +9,7 @@ const Pesquisar = ({ onSubmit }: Iprops) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+    console.log('teste teste teste')
     onSubmit(imputValue)
   }
 
