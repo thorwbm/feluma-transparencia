@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const http = axios.create({
-    baseURL: 'https://transparencia-pos-graducao.herokuapp.com'
+    baseURL: 'http://localhost:8080'
 })
 
 export default http
