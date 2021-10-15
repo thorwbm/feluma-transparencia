@@ -9,14 +9,14 @@ const Pesquisar = ({ onSubmit }: Iprops) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    console.log('teste teste teste')
+    console.log(imputValue)
     onSubmit(imputValue)
   }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <button type="submit" className="btn bg-primary">
+        <button type="submit" className="btn bg-primary ml-3">
           Pesquisar
         </button>
         <input type="search" onChange={(e) => setImputValue(e.target.value)} />
