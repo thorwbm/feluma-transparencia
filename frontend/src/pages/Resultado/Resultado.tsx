@@ -1,4 +1,3 @@
-import Button from 'components/Button'
 import CertificadoCard from 'components/CertificadoCard'
 import Footer from 'components/Footer'
 import NavBar from 'components/NavBar'
@@ -35,13 +34,13 @@ const Resultado = () => {
           />
         ))}
 
-        <div className="text-center">
+        {/* <div className="text-center">
           <Button
             route="/home"
             value="Nova Pesquisa"
             className="btn bg-primary px-4 my-3"
           />
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>
