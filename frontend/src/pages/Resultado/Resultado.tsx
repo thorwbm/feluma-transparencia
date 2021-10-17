@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { getCertificadoPorAluno } from 'services/Resultados.service'
 import { RegistroDiploma } from 'types/registro'
 import Pesquisar from 'components/Pesquisar'
+import Swal from 'sweetalert2'
 
 const Resultado = () => {
   let contador = 1
@@ -12,8 +13,29 @@ const Resultado = () => {
   const [registros, setRegistros] = useState<RegistroDiploma[]>([])
 
   const pesquisar = async (value: string) => {
-    const { content } = await getCertificadoPorAluno(value)
-    setRegistros(content)
+    try {
+      const { content } = await getCertificadoPorAluno(value)
+      setRegistros(content)
+      if (registros.length === 0) {
+        Swal.fire(
+          'Não foi encontrado nenhum registro para sua pesquisa. Refaça sua perquisa e verifique o que foi digitado!!!'
+        )
+      }
+
+      value = ''
+    } catch (error) {
+      console.log((error as Error).message)
+      if ((error as Error).message === 'Network Error') {
+        Swal.fire(
+          'aqui deu errado, não foi possivel conectar o bando de dados!!!'
+        )
+      } else {
+        Swal.fire(
+          'Entrar em contato com o administrador do sistema, não foi possivel identificar o erro!!! - ' +
+            (error as Error).message
+        )
+      }
+    }
   }
 
   return (
