@@ -19,6 +19,8 @@ const Resultado = () => {
 
       const qtd_registro = registros.map((item) => item).length
 
+      console.log(qtd_registro)
+
       if (qtd_registro < 1) {
         Swal.fire(
           'Não foi encontrado nenhum registro para sua pesquisa. Refaça sua perquisa e verifique o que foi digitado!!!'
