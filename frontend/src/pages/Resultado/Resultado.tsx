@@ -16,7 +16,7 @@ const Resultado = () => {
     try {
       const { content } = await getCertificadoPorAluno(value)
       setRegistros(content)
-      if (registros.length === 0) {
+      if (registros.map((item) => item).length < 1) {
         Swal.fire(
           'Não foi encontrado nenhum registro para sua pesquisa. Refaça sua perquisa e verifique o que foi digitado!!!'
         )
