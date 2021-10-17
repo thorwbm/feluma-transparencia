@@ -15,12 +15,25 @@ const Pesquisar = ({ onSubmit }: Iprops) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <button type="submit" className="btn bg-primary ml-3">
-          Pesquisar
-        </button>
-        <input type="search" onChange={(e) => setImputValue(e.target.value)} />
-      </form>
+      <div className="container">
+        <form onSubmit={handleSubmit} className="navbar-form navbar-left">
+          <div className="d-flex flex-row">
+            <div>
+              <button type="submit" className="btn bg-primary">
+                Pesquisar
+              </button>
+            </div>
+            <div className="col-sm">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Nome completo / CPF / RNE"
+                onChange={(e) => setImputValue(e.target.value)}
+              />
+            </div>
+          </div>
+        </form>
+      </div>
     </>
   )
 }
