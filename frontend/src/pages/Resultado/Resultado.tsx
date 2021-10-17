@@ -8,7 +8,7 @@ import Pesquisar from 'components/Pesquisar'
 import Swal from 'sweetalert2'
 
 const Resultado = () => {
-  let contador = 1
+  let contador = 0
 
   const [registros, setRegistros] = useState<RegistroDiploma[]>([])
 
@@ -16,7 +16,10 @@ const Resultado = () => {
     try {
       const { content } = await getCertificadoPorAluno(value)
       setRegistros(content)
-      if (registros.map((item) => item).length < 1) {
+
+      const qtd_registro = registros.map((item) => item).length
+
+      if (qtd_registro < 1) {
         Swal.fire(
           'Não foi encontrado nenhum registro para sua pesquisa. Refaça sua perquisa e verifique o que foi digitado!!!'
         )
@@ -64,6 +67,7 @@ const Resultado = () => {
           />
         </div> */}
       </div>
+
       <Footer />
     </>
   )
