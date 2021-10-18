@@ -10,24 +10,23 @@ import Swal from 'sweetalert2'
 const Resultado = () => {
   let contador = 0
 
+  const carregarRegistros = (reg: RegistroDiploma[]) => {
+    let qtd_registro = reg.map((item) => item).length
+
+    if (qtd_registro === 0) {
+      Swal.fire(
+        'Não foi encontrado nenhum registro para sua pesquisa. Refaça sua perquisa e verifique o que foi digitado!!!'
+      )
+    }
+  }
+
   const [registros, setRegistros] = useState<RegistroDiploma[]>([])
 
   const pesquisar = async (value: string) => {
     try {
-      const { content } = await getCertificadoPorAluno(value)
+      const { content } = await getCertificadoPorAluno(value).then()
       setRegistros(content)
-
-      const qtd_registro = registros.map((item) => item).length
-
-      console.log(qtd_registro)
-
-      if (qtd_registro < 1) {
-        Swal.fire(
-          'Não foi encontrado nenhum registro para sua pesquisa. Refaça sua perquisa e verifique o que foi digitado!!!'
-        )
-      }
-
-      value = ''
+      carregarRegistros(registros)
     } catch (error) {
       console.log((error as Error).message)
       if ((error as Error).message === 'Network Error') {
