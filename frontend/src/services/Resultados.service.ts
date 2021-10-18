@@ -1,4 +1,4 @@
-
+ 
 import {   RegistroPesquisa } from "types/registro";
 import http from "utils/http";
 
